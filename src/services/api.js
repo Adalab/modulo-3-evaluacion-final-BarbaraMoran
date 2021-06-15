@@ -18,4 +18,7 @@ const getApiData = () => {
       return cleanData;
     });
 };
+
+console.log(getApiData());
+
 export default getApiData;
