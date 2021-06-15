@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import "../stylesheets/App.scss";
 import getApiData from "../services/api";
-import CharacterList from "./CharacterList";
+import Header from "./Header";
+import Main from "./Main";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
@@ -14,9 +15,9 @@ const App = () => {
   }, []); //NOS INDICA CUANDO EJECUTAR EL USE EFFECT
 
   return (
-    <div>
-      <h1>HOLA</h1>
-      <CharacterList characters={characters} />
+    <div className="App">
+      <Header />
+      <Main characters={characters} />
     </div>
   );
 };
