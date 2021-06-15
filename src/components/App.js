@@ -6,18 +6,29 @@ import Main from "./Main";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
+  const [searchedCharacter, setSearchedCharacter] = useState("");
 
   useEffect(() => {
     getApiData().then((charactersData) => {
-      console.log(charactersData);
       setCharacters(charactersData);
     });
-  }, []); //NOS INDICA CUANDO EJECUTAR EL USE EFFECT
+  }, []);
+
+  const handleFilter = (userData) => {
+    setSearchedCharacter(userData);
+    console.log(searchedCharacter);
+  };
+
+  const filteredCharacters = characters.filter((character) => {
+    return character.name
+      .toLowerCase()
+      .includes(searchedCharacter.toLowerCase());
+  });
 
   return (
     <div className="App">
       <Header />
-      <Main characters={characters} />
+      <Main characters={filteredCharacters} handleFilter={handleFilter} />
     </div>
   );
 };

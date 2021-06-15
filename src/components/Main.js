@@ -5,7 +5,7 @@ import CharacterList from "./CharacterList";
 const Main = (props) => {
   return (
     <main>
-      <Filters />
+      <Filters handleFilter={props.handleFilter} />
       <CharacterList characters={props.characters} />
     </main>
   );

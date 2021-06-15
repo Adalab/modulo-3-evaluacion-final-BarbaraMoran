@@ -15,7 +15,6 @@ const getApiData = () => {
           status: character.status,
         };
       });
-      console.log(cleanData);
       return cleanData;
     });
 };
