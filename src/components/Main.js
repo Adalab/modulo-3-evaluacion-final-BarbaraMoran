@@ -5,7 +5,10 @@ import CharacterList from "./CharacterList";
 const Main = (props) => {
   return (
     <main>
-      <Filters handleFilter={props.handleFilter} />
+      <Filters
+        searchedCharacter={props.searchedCharacter}
+        handleFilter={props.handleFilter}
+      />
       <CharacterList characters={props.characters} />
     </main>
   );

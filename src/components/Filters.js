@@ -20,6 +20,7 @@ const Filters = (props) => {
           type="text"
           name="search"
           placeholder="Ej: Albert Einstein"
+          value={props.searchedCharacter}
           onChange={handleSearchInput}
         />
       </form>

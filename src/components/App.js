@@ -47,7 +47,11 @@ const App = () => {
       <Route exact path="/">
         <div className="App">
           <Header />
-          <Main characters={filteredCharacters} handleFilter={handleFilter} />
+          <Main
+            characters={filteredCharacters}
+            searchedCharacter={searchedCharacter}
+            handleFilter={handleFilter}
+          />
         </div>
       </Route>
       <Route path="/characterDetail/:id" render={renderCharacterDetail} />
