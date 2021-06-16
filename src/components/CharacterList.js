@@ -17,9 +17,8 @@ const CharacterList = (props) => {
 
   return (
     <section className="characters-section">
-      <ul className="characters-section__list">
-        {props.responseText} {characterListItems}
-      </ul>
+      {props.responseText}
+      <ul className="characters-section__list">{characterListItems}</ul>
     </section>
   );
 };
