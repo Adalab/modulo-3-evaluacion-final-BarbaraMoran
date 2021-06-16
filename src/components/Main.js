@@ -4,7 +4,7 @@ import CharacterList from "./CharacterList";
 
 const Main = (props) => {
   return (
-    <main>
+    <main className="main">
       <Filters
         searchedCharacter={props.searchedCharacter}
         handleFilter={props.handleFilter}

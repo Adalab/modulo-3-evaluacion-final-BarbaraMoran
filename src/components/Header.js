@@ -1,10 +1,12 @@
 import React from "react";
+import "../stylesheets/Header.scss";
 import logo from "../images/RickMortyLogo.png";
 
 const Header = () => {
   return (
-    <header>
+    <header className="header">
       <img
+        className="header__img"
         src={logo}
         alt="Rick & Morty Logo"
         title="Buscador de personajes de Rick & Morty"

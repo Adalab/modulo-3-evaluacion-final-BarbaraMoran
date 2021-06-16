@@ -1,15 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "../stylesheets/CharacterCard.scss";
 
 const CharacterCard = (props) => {
   return (
-    <article>
+    <article className="article">
       <img
+        className="article__img"
         src={props.character.picture}
         alt={props.character.name}
         title={props.character.name}
       />
-      <h3>{props.character.name}</h3> <h5>{props.character.species}</h5>
+      <h2 className="article__name">{props.character.name}</h2>{" "}
+      <h5 className="article__species">{props.character.species}</h5>
     </article>
   );
 };

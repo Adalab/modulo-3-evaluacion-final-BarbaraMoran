@@ -1,7 +1,9 @@
 .App {
-  font-family: "Noto Sans", sans-serif;
-  margin: 50px 25px;
-  .title {
-    text-align: center;
-  }
+  font-family: "Do Hyeon", sans-serif;
+  background-image: radial-gradient(
+    circle at 100% 0%,
+    #9da4ff 0,
+    #5275ef 50%,
+    #004bcb 100%
+  );
 }

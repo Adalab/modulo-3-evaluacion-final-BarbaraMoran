@@ -10,11 +10,13 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [searchedCharacter, setSearchedCharacter] = useState("");
   const [responseText, setResponseText] = useState("");
+  const [status, setStatus] = useState("");
 
   useEffect(() => {
     getApiData().then((charactersData) => {
       setCharacters(charactersData);
     });
+    //renderCharacterStatus();
   }, []);
 
   const handleFilter = (inputValue) => {
@@ -53,15 +55,27 @@ const App = () => {
     const foundCharacter = characters.find(
       (character) => character.id === parseInt(routeCharacterId)
     );
-    console.log(foundCharacter);
-    console.log(routeCharacterId);
 
     if (foundCharacter) {
-      return <CharacterDetail character={foundCharacter} />;
+      return <CharacterDetail character={foundCharacter} status={status} />;
     } else {
       return <p>El personaje que buscas no existe.</p>;
     }
   };
+
+  const renderCharacterStatus = () => {
+    return characters.map((characterStatus) => {
+      return characterStatus.status.map((eachStatus) => {
+        if (eachStatus === "Dead") {
+          setStatus(<i class="fas fa-skull-crossbones"></i>);
+        } else if (eachStatus === "Alive") {
+          setStatus(<i class="fas fa-heartbeat"></i>);
+        }
+      });
+    });
+  };
+
+  console.log(characters.status);
 
   return (
     <Switch>
