@@ -9,7 +9,10 @@ const Main = (props) => {
         searchedCharacter={props.searchedCharacter}
         handleFilter={props.handleFilter}
       />
-      <CharacterList characters={props.characters} />
+      <CharacterList
+        characters={props.characters}
+        responseText={props.responseText}
+      />
     </main>
   );
 };

@@ -19,6 +19,4 @@ const getApiData = () => {
     });
 };
 
-console.log(getApiData());
-
 export default getApiData;

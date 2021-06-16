@@ -9,6 +9,7 @@ import CharacterDetail from "./CharacterDetail";
 const App = () => {
   const [characters, setCharacters] = useState([]);
   const [searchedCharacter, setSearchedCharacter] = useState("");
+  const [responseText, setResponseText] = useState("");
 
   useEffect(() => {
     getApiData().then((charactersData) => {
@@ -16,9 +17,10 @@ const App = () => {
     });
   }, []);
 
-  const handleFilter = (userData) => {
-    setSearchedCharacter(userData);
+  const handleFilter = (inputValue) => {
+    setSearchedCharacter(inputValue);
     console.log(searchedCharacter);
+    renderNotFound();
   };
 
   const filteredCharacters = characters.filter((character) => {
@@ -26,6 +28,25 @@ const App = () => {
       .toLowerCase()
       .includes(searchedCharacter.toLowerCase());
   });
+
+  const renderNotFound = () => {
+    const checkSearchedCharacters = characters.find((character) => {
+      return character.name
+        .toLowerCase()
+        .includes(searchedCharacter.toLowerCase());
+    });
+
+    if (checkSearchedCharacters === undefined) {
+      setResponseText(
+        <p>
+          No hay ningún personaje que coincida con la palabra {""}
+          {searchedCharacter}
+        </p>
+      );
+    } else {
+      setResponseText("");
+    }
+  };
 
   const renderCharacterDetail = (routerProps) => {
     const routeCharacterId = routerProps.match.params.id;
@@ -51,6 +72,7 @@ const App = () => {
             characters={filteredCharacters}
             searchedCharacter={searchedCharacter}
             handleFilter={handleFilter}
+            responseText={responseText}
           />
         </div>
       </Route>

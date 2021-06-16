@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const CharacterCard = (props) => {
-  console.log(props.character);
   return (
     <article>
       <img

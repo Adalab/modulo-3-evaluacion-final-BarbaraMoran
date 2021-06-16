@@ -16,7 +16,9 @@ const CharacterList = (props) => {
 
   return (
     <section>
-      <ul> {characterListItems}</ul>
+      <ul>
+        {props.responseText} {characterListItems}
+      </ul>
     </section>
   );
 };
