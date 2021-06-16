@@ -12,7 +12,7 @@ const App = () => {
   const [searchedCharacter, setSearchedCharacter] = useState("");
   const [searchedSpecies, setSearchedSpecies] = useState([]);
   const [responseText, setResponseText] = useState("");
-  const [status, setStatus] = useState("");
+  //const [status, setStatus] = useState("");
 
   useEffect(() => {
     getApiData().then((charactersData) => {
@@ -70,7 +70,7 @@ const App = () => {
     );
 
     if (foundCharacter) {
-      return <CharacterDetail character={foundCharacter} status={status} />;
+      return <CharacterDetail character={foundCharacter} /*status={status}*/ />;
     } else {
       return <NotFound />;
     }
