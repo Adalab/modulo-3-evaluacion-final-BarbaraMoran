@@ -1,0 +1,32 @@
+.main-detail {
+  padding-top: 80px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .home-link {
+    font-size: 20px;
+    color: white;
+    font-family: "Do Hyeon", sans-serif;
+    padding-bottom: 10px;
+  }
+
+  .article {
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: solid rgb(0, 0, 0) 5px;
+    background-image: radial-gradient(
+      circle at 100% 0%,
+      #ffd490 0,
+      #ffc686 16.67%,
+      #ffb579 33.33%,
+      #ffa16a 50%,
+      #f48d5c 66.67%,
+      #ec7b53 83.33%,
+      #e66d4f 100%
+    );
+  }
+}

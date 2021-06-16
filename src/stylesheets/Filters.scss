@@ -1,0 +1,26 @@
+.search-section {
+  padding-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__form {
+    color: white;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .form__label {
+      padding-bottom: 15px;
+    }
+
+    .form__input {
+      width: 50%;
+      height: 40px;
+      background-color: #75ff6a;
+      font-family: "Do Hyeon", sans-serif;
+    }
+  }
+}

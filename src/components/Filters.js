@@ -1,4 +1,5 @@
 import React from "react";
+import "../stylesheets/Filters.scss";
 
 const Filters = (props) => {
   const handleSearchInput = (event) => {
@@ -10,12 +11,13 @@ const Filters = (props) => {
   };
 
   return (
-    <section>
-      <form onSubmit={submitPrevent}>
-        <label htmlFor="search">
+    <section className="search-section">
+      <form className="search-section__form" onSubmit={submitPrevent}>
+        <label className="form__label" htmlFor="search">
           ¡Busca tus personajes favoritos de la serie!
         </label>
         <input
+          className="form__input"
           id="search"
           type="text"
           name="search"
