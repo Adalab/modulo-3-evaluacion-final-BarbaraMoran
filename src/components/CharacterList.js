@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import CharacterCard from "./CharacterCard";
 
 const CharacterList = (props) => {
@@ -21,3 +22,5 @@ const CharacterList = (props) => {
 };
 
 export default CharacterList;
+
+CharacterList.propTypes = { characters: PropTypes.array };
