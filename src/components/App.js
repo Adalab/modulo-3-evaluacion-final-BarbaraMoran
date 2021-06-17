@@ -15,8 +15,7 @@ const App = () => {
   const [searchedCharacter, setSearchedCharacter] = useState("");
   const [searchedSpecies, setSearchedSpecies] = useState("");
   const [responseText, setResponseText] = useState("");
-  const [status, setStatus] = useState("");
-  const [detailCharacter, setDetailCharacter] = useState("");
+  //const [status, setStatus] = useState("");
 
   useEffect(() => {
     getApiData().then((charactersData) => {
@@ -27,7 +26,6 @@ const App = () => {
   const handleFilter = (inputInfo) => {
     if (inputInfo.name === "search") {
       setSearchedCharacter(inputInfo.value);
-      renderNotFound();
     } else {
       setSearchedSpecies(inputInfo.value);
     }
@@ -45,40 +43,22 @@ const App = () => {
       return character.species.includes(searchedSpecies);
     });
 
-  const renderNotFound = () => {
-    const checkSearchedCharacters = characters.find((character) => {
-      return character.name
-        .toLowerCase()
-        .includes(searchedCharacter.toLowerCase());
-    });
-
-    if (checkSearchedCharacters === undefined) {
-      setResponseText(
-        <p className="response-text">
-          {`No hay ningún personaje que coincida con la palabra "${searchedCharacter}"`}
-        </p>
-      );
-    } else {
-      setResponseText("");
-    }
-  };
-
   const renderCharacterDetail = (routerProps) => {
     const routeCharacterId = routerProps.match.params.id;
     const foundCharacter = characters.find(
       (character) => character.id === parseInt(routeCharacterId)
     );
 
-    setDetailCharacter(foundCharacter);
-
     if (foundCharacter) {
-      return <CharacterDetail character={foundCharacter} status={status} />;
+      return <CharacterDetail character={foundCharacter} /*status={status}*/ />;
     } else {
       return <NotFound />;
     }
   };
 
-  useEffect(() => {
+  //Para pintar iconos en el STATUS. Funciona pero rompe otras funciones (ruta navegable, página no encontrada,etc )
+
+  /*useEffect(() => {
     if (detailCharacter.status === "Dead") {
       setStatus(
         <img
@@ -108,9 +88,7 @@ const App = () => {
       );
     }
   }, [detailCharacter]);
-
-  console.log(detailCharacter.status);
-  console.log(status);
+  */
 
   return (
     <Switch>

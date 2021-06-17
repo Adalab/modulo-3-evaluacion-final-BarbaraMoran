@@ -3,11 +3,6 @@
   display: flex;
   justify-content: center;
 
-  .response-text {
-    font-size: 20px;
-    color: #75ff6a;
-  }
-
   &__list {
     display: grid;
     grid-template-columns: 1fr;

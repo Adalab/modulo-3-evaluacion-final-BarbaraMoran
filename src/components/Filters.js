@@ -28,18 +28,18 @@ const Filters = (props) => {
           value={props.searchedCharacter}
           onChange={handleInput}
         />
-        <label className="" htmlFor="species">
+        <label className="form__label" htmlFor="species">
           Especies
         </label>
 
         <select
-          className="form__input-select"
+          className="form__input"
           name="species"
           id="species"
           //value={props.searchedSpecies}
           onClick={handleInput}
         >
-          <option value="">Todos</option>
+          <option value="">Todas</option>
           <option value="Human">Human</option>
           <option value="Alien">Alien</option>
         </select>
