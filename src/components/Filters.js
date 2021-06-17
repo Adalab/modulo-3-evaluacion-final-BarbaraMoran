@@ -36,7 +36,6 @@ const Filters = (props) => {
           className="form__input"
           name="species"
           id="species"
-          //value={props.searchedSpecies}
           onClick={handleInput}
         >
           <option value="">Todas</option>

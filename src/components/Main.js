@@ -6,10 +6,7 @@ import CharacterList from "./CharacterList";
 const Main = (props) => {
   const mainContent =
     props.characters.length > 0 ? (
-      <CharacterList
-        characters={props.characters}
-        responseText={props.responseText}
-      />
+      <CharacterList characters={props.characters} />
     ) : (
       <p className="response-text">
         {`No hay ningún personaje que coincida con la palabra "${props.searchedCharacter}"`}
@@ -20,7 +17,6 @@ const Main = (props) => {
     <main className="main">
       <Filters
         searchedCharacter={props.searchedCharacter}
-        searchedSpecies={props.searchedSpecies}
         handleFilter={props.handleFilter}
       />
       {mainContent}

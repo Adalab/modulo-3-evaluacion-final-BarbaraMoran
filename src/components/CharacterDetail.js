@@ -3,9 +3,41 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../stylesheets/CharacterDetail.scss";
 import Header from "./Header";
+import deadIco from "../images/dead.png";
+import aliveIco from "../images/heart.svg";
+import questionIco from "../images/question.svg";
 
 const CharacterDetail = (props) => {
-  console.log(props.character);
+  const statusIcon = () => {
+    if (props.character.status === "Dead") {
+      return (
+        <img
+          className="status-icon"
+          src={deadIco}
+          alt="dead icon"
+          title="dead"
+        />
+      );
+    } else if (props.character.status === "Alive") {
+      return (
+        <img
+          className="status-icon"
+          src={aliveIco}
+          alt="alive icon"
+          title="alive"
+        />
+      );
+    } else if (props.character.status === "unknown") {
+      return (
+        <img
+          className="status-icon"
+          src={questionIco}
+          alt="unknown icon"
+          title="unknown"
+        />
+      );
+    }
+  };
 
   return (
     <div>
@@ -20,12 +52,11 @@ const CharacterDetail = (props) => {
             src={props.character.picture}
             alt={props.character.name}
           />
-
           <ul>
             <li>
               <h2>{props.character.name}</h2>
             </li>
-            <li>Status: {props.status}</li>
+            <li>Status: {statusIcon()}</li>
             <li>Species: {props.character.species}</li>
             <li>Origin: {props.character.planet}</li>
             <li>Episodes number: {props.character.episodesNumber}</li>
