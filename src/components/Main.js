@@ -7,8 +7,10 @@ const Main = (props) => {
     <main className="main">
       <Filters
         searchedCharacter={props.searchedCharacter}
+        searchedSpecies={props.searchedSpecies}
         handleFilter={props.handleFilter}
       />
+      {}
       <CharacterList
         characters={props.characters}
         responseText={props.responseText}

@@ -12,7 +12,7 @@ const NotFound = () => {
       <Header />
       <main className="main-not-found">
         <Link to="/" className="home-link">
-          <i class="fas fa-angle-double-left"></i> Volver
+          <i className="fas fa-angle-double-left"></i> Volver
         </Link>
         <p className="message">El personaje que buscas no existe.</p>;
       </main>

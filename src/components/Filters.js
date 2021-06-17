@@ -4,8 +4,8 @@ import "../stylesheets/Filters.scss";
 const Filters = (props) => {
   const handleInput = (event) => {
     props.handleFilter({
-      name: event.target.name,
       value: event.target.value,
+      name: event.target.name,
     });
   };
 
@@ -28,7 +28,7 @@ const Filters = (props) => {
           value={props.searchedCharacter}
           onChange={handleInput}
         />
-        <label className="form__label display-block" htmlFor="gender">
+        <label className="" htmlFor="species">
           Especies
         </label>
 
@@ -36,6 +36,7 @@ const Filters = (props) => {
           className="form__input-select"
           name="species"
           id="species"
+          //value={props.searchedSpecies}
           onClick={handleInput}
         >
           <option value="">Todos</option>

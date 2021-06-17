@@ -12,7 +12,7 @@ const CharacterDetail = (props) => {
       <Header />
       <main className="main-detail">
         <Link to="/" className="home-link">
-          <i class="fas fa-angle-double-left"></i> Volver
+          <i className="fas fa-angle-double-left"></i> Volver
         </Link>
         <article className="article">
           <img

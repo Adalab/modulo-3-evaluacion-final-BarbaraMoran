@@ -6,30 +6,33 @@ import Header from "./Header";
 import Main from "./Main";
 import CharacterDetail from "./CharacterDetail";
 import NotFound from "./NotFound";
+import deadIco from "../images/dead.png";
+import aliveIco from "../images/heart.svg";
+import questionIco from "../images/question.svg";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
   const [searchedCharacter, setSearchedCharacter] = useState("");
-  const [searchedSpecies, setSearchedSpecies] = useState([]);
+  const [searchedSpecies, setSearchedSpecies] = useState("");
   const [responseText, setResponseText] = useState("");
-  //const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("");
+  const [detailCharacter, setDetailCharacter] = useState("");
 
   useEffect(() => {
     getApiData().then((charactersData) => {
       setCharacters(charactersData);
     });
-    //renderCharacterStatus();
   }, []);
 
   const handleFilter = (inputInfo) => {
     if (inputInfo.name === "search") {
       setSearchedCharacter(inputInfo.value);
+      renderNotFound();
     } else {
       setSearchedSpecies(inputInfo.value);
     }
 
     console.log(searchedCharacter);
-    renderNotFound();
   };
 
   const filteredCharacters = characters
@@ -51,12 +54,9 @@ const App = () => {
 
     if (checkSearchedCharacters === undefined) {
       setResponseText(
-        <>
-          <p className="response-text">
-            No hay ningún personaje que coincida con la palabra {""}
-            {searchedCharacter}
-          </p>{" "}
-        </>
+        <p className="response-text">
+          {`No hay ningún personaje que coincida con la palabra "${searchedCharacter}"`}
+        </p>
       );
     } else {
       setResponseText("");
@@ -69,25 +69,48 @@ const App = () => {
       (character) => character.id === parseInt(routeCharacterId)
     );
 
+    setDetailCharacter(foundCharacter);
+
     if (foundCharacter) {
-      return <CharacterDetail character={foundCharacter} /*status={status}*/ />;
+      return <CharacterDetail character={foundCharacter} status={status} />;
     } else {
       return <NotFound />;
     }
   };
 
-  /*const renderCharacterStatus = () => {
-    return characters.map((characterStatus) => {
-      return characterStatus.status.map((eachStatus) => {
-        if (eachStatus === "Dead") {
-          setStatus(<i class="fas fa-skull-crossbones"></i>);
-        } else if (eachStatus === "Alive") {
-          setStatus(<i class="fas fa-heartbeat"></i>);
-        }
-      });
-    });
-  };
-  }*/
+  useEffect(() => {
+    if (detailCharacter.status === "Dead") {
+      setStatus(
+        <img
+          className="status-icon"
+          src={deadIco}
+          alt="dead icon"
+          title="dead"
+        />
+      );
+    } else if (detailCharacter.status === "Alive") {
+      setStatus(
+        <img
+          className="status-icon"
+          src={aliveIco}
+          alt="alive icon"
+          title="alive"
+        />
+      );
+    } else if (detailCharacter.status === "unknown") {
+      setStatus(
+        <img
+          className="status-icon"
+          src={questionIco}
+          alt="unknown icon"
+          title="unknown"
+        />
+      );
+    }
+  }, [detailCharacter]);
+
+  console.log(detailCharacter.status);
+  console.log(status);
 
   return (
     <Switch>
@@ -97,6 +120,7 @@ const App = () => {
           <Main
             characters={filteredCharacters}
             searchedCharacter={searchedCharacter}
+            searchedSpecies={searchedSpecies}
             handleFilter={handleFilter}
             responseText={responseText}
           />
