@@ -17,19 +17,19 @@ const Filters = (props) => {
     <section className="search-section">
       <form className="search-section__form" onSubmit={submitPrevent}>
         <label className="form__label" htmlFor="search">
-          ¡Busca tus personajes favoritos de la serie!
+          ¡Search your favorite characters from the tv series!
         </label>
         <input
           className="form__input"
           id="search"
           type="text"
           name="search"
-          placeholder="Ej: Albert Einstein"
+          placeholder="Ex: Albert Einstein"
           value={props.searchedCharacter}
           onChange={handleInput}
         />
         <label className="form__label" htmlFor="species">
-          Especies
+          Species
         </label>
 
         <select
@@ -38,7 +38,7 @@ const Filters = (props) => {
           id="species"
           onClick={handleInput}
         >
-          <option value="">Todas</option>
+          <option value="">All</option>
           <option value="Human">Human</option>
           <option value="Alien">Alien</option>
         </select>

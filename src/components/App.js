@@ -11,7 +11,7 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [searchedCharacter, setSearchedCharacter] = useState("");
   const [searchedSpecies, setSearchedSpecies] = useState("");
-
+  const [searchedEpisodes, setSearchedEpisodes] = useState("");
   useEffect(() => {
     getApiData().then((charactersData) => {
       setCharacters(charactersData);
@@ -21,8 +21,12 @@ const App = () => {
   const handleFilter = (inputInfo) => {
     if (inputInfo.name === "search") {
       setSearchedCharacter(inputInfo.value);
-    } else {
+    }
+    if (inputInfo.name === "species") {
       setSearchedSpecies(inputInfo.value);
+    }
+    if (inputInfo.name === "searchEpisodes") {
+      setSearchedEpisodes(inputInfo.value);
     }
   };
 
@@ -34,6 +38,13 @@ const App = () => {
     })
     .filter((character) => {
       return character.species.includes(searchedSpecies);
+    })
+    .filter((character) => {
+      if (searchedEpisodes === "") {
+        return true;
+      } else {
+        return character.episodesNumber >= searchedEpisodes;
+      }
     });
 
   const renderCharacterDetail = (routerProps) => {
@@ -50,19 +61,21 @@ const App = () => {
   };
 
   return (
-    <Switch>
-      <Route exact path="/">
-        <div className="App">
-          <Header />
-          <Main
-            characters={filteredCharacters}
-            searchedCharacter={searchedCharacter}
-            handleFilter={handleFilter}
-          />
-        </div>
-      </Route>
-      <Route path="/characterDetail/:id" render={renderCharacterDetail} />
-    </Switch>
+    <>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <div className="App">
+            <Main
+              characters={filteredCharacters}
+              searchedCharacter={searchedCharacter}
+              handleFilter={handleFilter}
+            />
+          </div>
+        </Route>
+        <Route path="/characterDetail/:id" render={renderCharacterDetail} />
+      </Switch>
+    </>
   );
 };
 

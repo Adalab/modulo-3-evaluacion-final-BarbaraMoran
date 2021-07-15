@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../stylesheets/CharacterDetail.scss";
-import Header from "./Header";
 import deadIco from "../images/dead.png";
 import aliveIco from "../images/heart.svg";
 import questionIco from "../images/question.svg";
@@ -41,10 +40,9 @@ const CharacterDetail = (props) => {
 
   return (
     <div>
-      <Header />
       <main className="main-detail">
         <Link to="/" className="home-link">
-          <i className="fas fa-angle-double-left"></i> Volver
+          <i className="fas fa-angle-double-left"></i> Home
         </Link>
         <article className="article">
           <img

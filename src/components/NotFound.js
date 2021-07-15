@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../stylesheets/NotFound.scss";
-import Header from "./Header";
+import rickGif from "../images/gif1.gif";
 
 const NotFound = () => {
   return (
     <>
-      <Header />
       <main className="main-not-found">
         <Link to="/" className="home-link">
-          <i className="fas fa-angle-double-left"></i> Volver
+          <i className="fas fa-angle-double-left"></i> Home
         </Link>
-        <p className="message">El personaje que buscas no existe.</p>;
+        <p className="message">This character doesn't exist.</p>;
+        <img className="rick-gif" src={rickGif} alt="Rick gif" />
       </main>
     </>
   );
