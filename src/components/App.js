@@ -4,6 +4,7 @@ import "../stylesheets/App.scss";
 import getApiData from "../services/api";
 import Header from "./Header";
 import Main from "./Main";
+import Footer from "./Footer";
 import CharacterDetail from "./CharacterDetail";
 import NotFound from "./NotFound";
 
@@ -75,6 +76,7 @@ const App = () => {
         </Route>
         <Route path="/characterDetail/:id" render={renderCharacterDetail} />
       </Switch>
+      <Footer />
     </>
   );
 };

@@ -1,0 +1,41 @@
+.footer {
+  display: none;
+  @media all and(min-width: 550px) {
+    background-image: radial-gradient(
+      circle at 100% 0%,
+      #ffd490 0,
+      #ffc686 16.67%,
+      #ffb579 33.33%,
+      #ffa16a 50%,
+      #f48d5c 66.67%,
+      #ec7b53 83.33%,
+      #e66d4f 100%
+    );
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    font-size: 20px;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+
+    .small {
+      margin-left: 15px;
+    }
+
+    .social {
+      margin-right: 15px;
+
+      .sm-link {
+        color: black;
+        margin-right: 10px;
+      }
+    }
+  }
+}

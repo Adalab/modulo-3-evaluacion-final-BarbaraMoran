@@ -17,7 +17,7 @@ const Filters = (props) => {
     <section className="search-section">
       <form className="search-section__form" onSubmit={submitPrevent}>
         <label className="form__label" htmlFor="search">
-          ¡Search your favorite characters from the tv series!
+          Search by name
         </label>
         <input
           className="form__input"
