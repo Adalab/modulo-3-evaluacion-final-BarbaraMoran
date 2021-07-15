@@ -8,7 +8,7 @@ Made with React, (react router) SASS(flexbox, grid), HTML5 (JSX) and Node.</b>
 <a target="_blank" href="https://barbaramoran.github.io/rick-morty-characters/#/"><img src="https://i.postimg.cc/sXV7vtzV/Sin-t-tulo.png"/></a>
 
 ***
-# Clone the project on your Code editor and try it!
+# Download the project on your Code editor and try it!
 
 👉Install the project dependencies ➡️ "npm install".
 
