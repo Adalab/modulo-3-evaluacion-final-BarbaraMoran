@@ -1,6 +1,6 @@
 # Rick & Morty characters finder
 
-<b>[Characters Finder](https://barbaramoran.github.io/rick-morty-characters/#/). Do your search by name or/and by species and get more info by clicking on each character. 
+<b>[Characters search engine](https://barbaramoran.github.io/rick-morty-characters/#/). Do your search by name or/and by species and get more info by clicking on each character. 
   
 Responsive Web Design.
 Made with React, (react router) SASS(flexbox, grid), HTML5 (JSX) and Node.</b>
